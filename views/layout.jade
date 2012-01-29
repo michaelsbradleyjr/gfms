@@ -1,0 +1,12 @@
+!!! 5
+html
+	head
+		title #{title} - Github Flavored Markdown Server
+		//link(rel='stylesheet', href='/github.css')
+		link(rel='stylesheet', href='http://a248.e.akamai.net/assets.github.com/stylesheets/bundles/github-34a19ad407ee058e180249a0f19030a3731ed4d8.css')
+		link(rel='stylesheet', href='/style.css')
+		script(src='http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js')
+		script(src='/socket.io/socket.io.js')
+		script(src='/gfms.js')
+	body
+		block content
