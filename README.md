@@ -12,6 +12,8 @@ Sure, there are various good Markdown editors for all platforms, but only a few 
 ```js
 function(arg) {
 	// some code here
+	for(var i = 0; i < 10; i++)
+		console.log('hello ' + i);
 }
 ```
 
