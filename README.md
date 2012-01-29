@@ -31,7 +31,9 @@ Another possible shortcoming is that the [Github CSS](http://a248.e.akamai.net/a
 	cd your-github-project-dir
 	gfms -p 1234
 
-Browse to `http://localhost:1234`, and select the `.md` or `.markdown` file to view.
+(If you don't know how to install NPM, see here: http://npmjs.org/)
+
+Now browse to `http://localhost:1234`, and select the `.md` or `.markdown` file to view.
 
 When you save the source Markdown file in your editor, it will be automatically updated in your browser. So perhaps a good setup is to have both your editor window and your browser window visible at the same time, so that you don't have to switch in between.
 
