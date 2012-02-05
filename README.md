@@ -23,7 +23,7 @@ And none would show the result looking (almost) exactly like at Github.
 
 Well, the current implementation of GFMS doesn't color the source code blocks, but it at least renders them correctly. I had to modify the `showdown.js` from `github-flavored-markdown`. I made a copy of that file, and fork & pull-request to the original project is on my `TODO` list. GFMS has `github-flavored-markdown` as a dependency despite it's not needed, so that the heritage is obvious in NPM.
 
-Another possible shortcoming is that the [Github CSS](http://a248.e.akamai.net/assets.github.com/stylesheets/bundles/github-34a19ad407ee058e180249a0f19030a3731ed4d8.css) file is loaded from Akamai, and when its name changes, this tool will need to be updated.
+Another possible shortcoming is that the URLs of the Github CSS files are scraped from www.github.com directly, introducing some fragility inherent to the nature of scraping.
 
 ## Usage
 

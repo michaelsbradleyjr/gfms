@@ -17,12 +17,14 @@ var markdown = //require('github-flavored-markdown').parse;
 	require('./showdown.js').parse;
 var _ = require('underscore');
 var fs = require('fs');
+var request = require('request');
 
 var laeh = require('laeh2').leanStacks(true);
 var _e = laeh._e;
 var _x = laeh._x;
 
 var watched = {};
+var styles = [];
 
 app.configure(function() {
 
@@ -97,6 +99,7 @@ app.get('*', function(req, res, next) {
 		res.render('directory', {
 			files: files,
 			dir: dir,
+			styles: styles,
 			title: basename(dir)
 		});
 	}
@@ -115,6 +118,7 @@ app.get('*', function(req, res, next) {
 		res.render('file', {
 			file: markdown(fs.readFileSync(dir, 'utf8')),
 			title: basename(dir),
+			styles: styles,
 			fullname: dir
 		});
 	}
@@ -122,13 +126,28 @@ app.get('*', function(req, res, next) {
 		return next();
 });
 
-app.listen(argv.p, argv.h);
-io = sio.listen(app);
-io.set('log level', 1);
-
-console.log('GFMS serving ' + process.cwd() + ' at http://' + argv.h + ':' + argv.p + '/ - press CTRL+C to exit.');
-
 process.on('SIGINT', function() {
 	console.log('\nGFMS exit.');
 	return process.exit();
+});
+
+console.log('Getting .css links from Github...');
+
+request('http://www.github.com', function(err, res, body) {
+
+	if(err || res.statusCode != 200)
+		throw 'Cannot load .css links from Github';
+		
+	var m, re = /<link href="(.+?)" media="screen" rel="stylesheet" type="text\/css" \/>/g;
+	while(m = re.exec(body))
+		styles.push(m[1]);
+		
+	if(!styles.length)
+		throw 'Cannot parse .css links from Github';
+
+	app.listen(argv.p, argv.h);
+	io = sio.listen(app);
+	io.set('log level', 1);
+	
+	console.log('GFMS serving ' + process.cwd() + ' at http://' + argv.h + ':' + argv.p + '/ - press CTRL+C to exit.');
 });
