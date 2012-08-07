@@ -1,40 +1,41 @@
 {
-	"author": "Juraj Vitko (ypocat.com)",
-	"name": "gfms",
-	"description": "Github Flavored Markdown Server",
-	"keywords": [ "markdown", "server", "local", "reloading" ],
-	"version": "0.0.3",
-	"homepage": "http://github.com/ypocat/gfms",
-	"repository": {
-		"type": "git",
-		"url": "git://github.com/ypocat/gfms.git"
-	},
-	"main": "gfms.js",
-	"directories": {
-		"lib": "./lib"
-	},
-	"bin": {
-		"gfms": "./bin/gfms"
-	},
-	"engines": {
-		"node": ">= 0.6.0"
-	},
-	"dependencies": {
-		"express": "*",
-		"github-flavored-markdown": "*",
-		"jade": "*",
-		"laeh2": "*",
-		"nib": "*",
-		"optimist": "*",
-		"request": "*",
-		"socket.io": "*",
-		"stylus": "*",
-		"underscore": "*",
-		"utilz": "*"
-	},
-	"devDependencies": {
-	},
-	"licenses": [
-		{  "type" : "MIT", "url" : "https://raw.github.com/ypocat/gfms/master/LICENSE" }
-	]
+        "author": "Juraj Vitko (ypocat.com)",
+        "name": "gfms",
+        "description": "Github Flavored Markdown Server",
+        "keywords": [ "markdown", "server", "local", "reloading" ],
+        "version": "0.0.3",
+        "homepage": "http://github.com/ypocat/gfms",
+        "repository": {
+                "type": "git",
+                "url": "git://github.com/ypocat/gfms.git"
+        },
+        "main": "gfms.js",
+        "directories": {
+                "lib": "./lib"
+        },
+        "bin": {
+                "gfms": "./bin/gfms"
+        },
+        "engines": {
+                "node": ">=0.6.0 <0.7.0"
+        },
+        "engineStrict": true,
+        "dependencies": {
+                "express": "2.5.11",
+                "github-flavored-markdown": "*",
+                "jade": "*",
+                "laeh2": "*",
+                "nib": "*",
+                "optimist": "*",
+                "request": "*",
+                "socket.io": "*",
+                "stylus": "*",
+                "underscore": "*",
+                "utilz": "*"
+        },
+        "devDependencies": {
+        },
+        "licenses": [
+                {  "type" : "MIT", "url" : "https://raw.github.com/ypocat/gfms/master/LICENSE" }
+        ]
 }
